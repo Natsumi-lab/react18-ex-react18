@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
 type Todo = {
@@ -15,7 +15,7 @@ const fetchTodos = async () => {
 
 
 export const TodoList = () => {
-        const { data } = useQuery<Todo[]>({
+        const { data } = useSuspenseQuery<Todo[]>({
     queryKey: ["todos"],
     queryFn: fetchTodos,
     })
